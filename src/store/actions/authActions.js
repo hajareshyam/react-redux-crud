@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const getUsers = () => {
-    return (dispatch, getState) => {
+    return (dispatch) => {
+
         // make async call to database
         axios.get(`https://hoarding.herokuapp.com/api/users`)
             .then((response) => {
@@ -15,7 +16,7 @@ export const getUsers = () => {
 };
 
 export const createUser = (user) => {
-    return (dispatch,getState) => {
+    return (dispatch) => {
         // make async call to database
         axios.post(`https://hoarding.herokuapp.com/api/users`, user)
             .then(() => {

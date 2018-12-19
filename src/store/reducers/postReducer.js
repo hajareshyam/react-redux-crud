@@ -6,6 +6,7 @@ const initState = {
 const postReducer = (state = initState, action) => {
     switch (action.type) {
         case 'GET_POSTS_SUCCESS':
+            console.log('Level 2');
             return {
                 ...state,
                 posts: action.payload.data
@@ -13,11 +14,12 @@ const postReducer = (state = initState, action) => {
         case 'GET_POSTS_ERROR':
             return state;
         case 'CREATE_POST_SUCCESS':
-            return {
-                ...state,
-                posts:[...action.payload.data]
-            }
+            return state;
         case 'CREATE_POST_ERROR':
+            return state;
+        case 'UPDATE_POST_SUCCESS':
+           return state
+        case 'UPDATE_POST_ERROR':
             return state;
         case 'DELETE_POST_SUCCESS':
             return {

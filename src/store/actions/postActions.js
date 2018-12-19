@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export const getPosts = () => {
-    return (dispatch) => {
-
+    return (dispatch, getState) => {
         // make async call to database
         axios.get(`https://hoarding.herokuapp.com/api/posts`)
             .then((response) => {
@@ -25,6 +24,19 @@ export const createPost = (post) => {
             .catch((error) => {
                 dispatch({type:"CREATE_POST_ERROR",payload:error})
 
+            });
+    }
+}
+
+export const updatePost = (post) => {
+    return (dispatch) => {
+        // make async call to database
+        axios.put(`https://hoarding.herokuapp.com/api/posts`, post)
+            .then(() => {
+                dispatch({type:"UPDATE_POST_SUCCESS",payload:post})
+            })
+            .catch((error) => {
+                dispatch({type:"UPDATE_POST_ERROR",payload:error})
             });
     }
 }

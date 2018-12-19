@@ -17,6 +17,7 @@ class PostsList extends Component {
 
     render() {
         const posts  = this.props.posts
+        console.log(posts);
         return (
             <div>
                 <div><Link to={`/post/add`}><button>Add Post</button></Link></div>
@@ -36,7 +37,10 @@ class PostsList extends Component {
                                 <th scope="row">{i+1}</th>
                                 <td>{post.title}</td>
                                 <td>{post.content}</td>
-                                <td><button>Edit</button><button id={post.id} onClick={this.handleDelete}>Delete</button></td>
+                                <td>
+                                    <Link to={`/post/edit/${post.id}`}> <button>Edit</button></Link>
+                                    <button id={post.id} onClick={this.handleDelete}>Delete</button>
+                                </td>
                             </tr>
                         )
                     })}
