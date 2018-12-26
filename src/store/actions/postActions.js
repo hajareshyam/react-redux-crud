@@ -50,7 +50,6 @@ export const deletePost = (postId) => {
             })
             .catch((error) => {
                 dispatch({type:"DELETE_POST_ERROR",payload:error})
-
             });
     }
 }

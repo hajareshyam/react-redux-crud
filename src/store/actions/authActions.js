@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const getUsers = () => {
     return (dispatch) => {
-
         // make async call to database
         axios.get(`https://hoarding.herokuapp.com/api/users`)
             .then((response) => {

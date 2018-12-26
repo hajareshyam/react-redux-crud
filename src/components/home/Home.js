@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import { getUsers } from '../../store/actions/authActions';
 import PostsList from "../posts/postsList";
 import {getPosts} from "../../store/actions/postActions";
 
@@ -29,7 +28,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         getPosts: () => dispatch(getPosts()),
-        getUsers: () => dispatch(getUsers())
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);

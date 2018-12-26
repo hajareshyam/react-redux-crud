@@ -6,7 +6,6 @@ const initState = {
 const postReducer = (state = initState, action) => {
     switch (action.type) {
         case 'GET_POSTS_SUCCESS':
-            console.log('Level 2');
             return {
                 ...state,
                 posts: action.payload.data

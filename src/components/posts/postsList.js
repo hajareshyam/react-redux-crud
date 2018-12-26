@@ -17,7 +17,6 @@ class PostsList extends Component {
 
     render() {
         const posts  = this.props.posts
-        console.log(posts);
         return (
             <div>
                 <div><Link to={`/post/add`}><button>Add Post</button></Link></div>

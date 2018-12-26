@@ -18,7 +18,7 @@ class AddPost extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.id;
-        if(id !== 'undefined'){
+        if(id !== undefined){
             axios.get(`https://hoarding.herokuapp.com/api/posts/${id}`)
                 .then((response) => {
                     let post = response.data;
@@ -61,7 +61,7 @@ class AddPost extends Component {
 
 
     render() {
-        console.log(this.state);
+        console.log(this.props)
         return (
             <div>
                 <form>
@@ -82,11 +82,19 @@ class AddPost extends Component {
     }
 }
 
+const mapStateToProps = (state,ownState) => {
+    return {
+
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
+    console.log(dispatch);
+
     return {
         createPost: (post) => dispatch(createPost(post)),
         updatePost: (post) => dispatch(updatePost(post))
     }
 }
 
-export default connect(null,mapDispatchToProps)(AddPost);
+export default connect(mapStateToProps,mapDispatchToProps)(AddPost);
